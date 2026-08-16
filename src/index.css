@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  
+  --color-brand-purple: #6366f1; /* Indigo-500 */
+  --color-brand-blue: #8b5cf6;   /* Purple-500 */
+  --color-brand-cyan: #06b6d4;   /* Cyan-500 */
+  
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-pulse-slow: pulseSlow 8s ease-in-out infinite;
+  --animate-spin-slow: spinSlow 20s linear infinite;
+  --animate-wave-motion: waveMotion 15s linear infinite;
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-15px) rotate(3deg); }
+  }
+  @keyframes pulseSlow {
+    0%, 100% { opacity: 0.4; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(1.08); }
+  }
+  @keyframes spinSlow {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  @keyframes waveMotion {
+    0% { transform: translateX(0) translateZ(0) scaleY(1); }
+    50% { transform: translateX(-25%) translateZ(0) scaleY(0.85); }
+    100% { transform: translateX(-50%) translateZ(0) scaleY(1); }
+  }
+}
+
+/* Custom scrollbar and aesthetics */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  body {
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0b0f19;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, var(--color-brand-purple), var(--color-brand-blue));
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, var(--color-brand-blue), var(--color-brand-cyan));
+  }
+}
+
+/* Glassmorphism Styles for Geometric Balance */
+.glass-card {
+  background: rgba(15, 23, 42, 0.45);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 40px -10px rgba(99, 102, 241, 0.15);
+  border-radius: 1.5rem;
+}
+
+.glass-card-light {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 10px 40px -10px rgba(99, 102, 241, 0.05);
+  border-radius: 1.5rem;
+}
+
+.glass-navbar {
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-navbar-light {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+/* Gradient text utility */
+.gradient-text-purple-blue-cyan {
+  background: linear-gradient(135deg, #818cf8 0%, #a78bfa 50%, #22d3ee 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-text-blue-cyan {
+  background: linear-gradient(135deg, #6366f1 0%, #06b6d4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Custom styles for waves and background particles */
+.bg-mesh-dark {
+  background-color: #020617; /* Slate-950 */
+  background-image: 
+    radial-gradient(at 90% 10%, rgba(99, 102, 241, 0.15) 0px, transparent 50%),
+    radial-gradient(at 10% 90%, rgba(6, 182, 212, 0.15) 0px, transparent 50%);
+}
+
+.bg-mesh-light {
+  background-color: #f8fafc;
+  background-image: 
+    radial-gradient(at 90% 10%, rgba(99, 102, 241, 0.06) 0px, transparent 50%),
+    radial-gradient(at 10% 90%, rgba(6, 182, 212, 0.06) 0px, transparent 50%);
+}
+
+/* Custom Hide Scrollbar */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
